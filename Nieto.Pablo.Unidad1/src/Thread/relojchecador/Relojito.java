@@ -18,8 +18,15 @@ public class Relojito extends javax.swing.JFrame {
                         int min=cal.get(Calendar.MINUTE);
                         int sec=cal.get(Calendar.SECOND);
                         
-                        if(sec>10)campo.setEditable(false);
-                        else campo.setEditable(true);
+                        if(sec>10){
+                            campo.setEditable(false);
+                            checar.setEnabled(false);
+                        }
+                        else{ 
+                            campo.setEditable(true);
+                            checar.setEnabled(true);
+                        }
+                        
                         
                         String tiempo = hora+":"+min+":"+sec;
                         etiqueta.setText(tiempo);
@@ -46,6 +53,9 @@ public class Relojito extends javax.swing.JFrame {
         etiqueta = new javax.swing.JLabel();
         campo = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
+        checar = new javax.swing.JButton();
+        nomtra = new javax.swing.JLabel();
+        horchec = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -53,6 +63,7 @@ public class Relojito extends javax.swing.JFrame {
 
         etiqueta.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         etiqueta.setText(";)");
+        etiqueta.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         campo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -61,30 +72,61 @@ public class Relojito extends javax.swing.JFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jLabel1.setText("Cuenta del Trabajador");
+        jLabel1.setText("Nombre del Trabajador");
+
+        checar.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        checar.setText("Checar");
+        checar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checarActionPerformed(evt);
+            }
+        });
+
+        nomtra.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+
+        horchec.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(197, 197, 197)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(etiqueta, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(campo))
-                .addContainerGap(163, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(212, 212, 212)
+                        .addComponent(etiqueta, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(213, 213, 213)
+                        .addComponent(checar, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(52, 52, 52)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(nomtra, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(horchec, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(49, 49, 49)
+                                .addComponent(campo, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(73, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(117, 117, 117)
+                .addGap(45, 45, 45)
                 .addComponent(etiqueta, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
-                .addComponent(jLabel1)
+                .addGap(77, 77, 77)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(campo, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(checar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(campo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(180, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(horchec, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nomtra, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(131, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -104,6 +146,12 @@ public class Relojito extends javax.swing.JFrame {
     private void campoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoActionPerformed
       
     }//GEN-LAST:event_campoActionPerformed
+
+    private void checarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checarActionPerformed
+        nomtra.setText(campo.getText());
+        horchec.setText(etiqueta.getText());
+        campo.setText("");
+    }//GEN-LAST:event_checarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -142,8 +190,11 @@ public class Relojito extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField campo;
+    private javax.swing.JButton checar;
     private javax.swing.JLabel etiqueta;
+    private javax.swing.JLabel horchec;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel nomtra;
     // End of variables declaration//GEN-END:variables
 }
