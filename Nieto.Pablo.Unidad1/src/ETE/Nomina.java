@@ -9,12 +9,16 @@ public class Nomina {
     
     
     
-    public double setsaldo(){
+    public double getsaldo(){
         return saldo;
     }
     
-    public void setSaldo(double saldo){
-        this.saldo=saldo;
+    public void setSaldo(double saldo)throws saldoFueradeRangoException{
+        if (19999 < saldo )
+            if (saldo < 25001)
+                this.saldo=saldo;
+            else 
+                throw new saldoFueradeRangoException();
     } 
 
     public int getIdTrabajador() {
